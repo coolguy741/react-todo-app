@@ -27,7 +27,6 @@ const todoReducer = (state = [], action) => {
       toast.success("A todo was deleted...", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
-      console.log("action id", action.id);
       return state.filter((todo) => todo._id !== action.todo.data._id);
     default:
       return state;

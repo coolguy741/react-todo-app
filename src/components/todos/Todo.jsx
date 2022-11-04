@@ -64,7 +64,7 @@ const ListTodos = ({ todo, setTodo }) => {
                     </Typography>)   
                     }
                     <Typography variant='body2' className={ classes.grayStyle }>
-                        Author: Chacoo
+                        Author: {todo.author}
                     </Typography>
                     <Typography variant='body2' className={ classes.grayStyle }>
                         Added: { moment(todo.date).fromNow()}

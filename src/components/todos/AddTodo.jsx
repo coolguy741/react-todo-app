@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {TextField, Button} from '@material-ui/core';
 import {Send} from '@material-ui/icons';
@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 const AddTodo = ({ todo, setTodo }) => {
     const classes = useStyles();
     const dispatch = useDispatch(); 
+    const auth = useSelector(state => state.auth);
 
     const handleSubmit  = (e) => {
         e.preventDefault();
@@ -35,7 +36,8 @@ const AddTodo = ({ todo, setTodo }) => {
                 name: todo.name,
                 isComplete: todo.isComplete,
                 date: todo.date,
-                author: "Chaoo",
+                author: todo.author,
+                uid: todo.uid,
             }
             dispatch(updateTodo(updatedTodo, id));
         } else {
@@ -49,6 +51,8 @@ const AddTodo = ({ todo, setTodo }) => {
         setTodo({
             name: "",
             isComplete: false,
+            author: auth.author,
+            uid: auth._id,
         })
         
     }
