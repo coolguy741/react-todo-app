@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
-        flexGrow: 1
+        flexGrow: 1,
     },
     linkStyle: {
         color: "#fafafa",
@@ -33,7 +33,7 @@ const NavBar = () => {
         <>
             <AppBar position="static" color="primary">
                 <Toolbar>
-                    <Typography variant = "h4">
+                    <Typography variant = "h4" className={ classes.root}>
                         <Link className = { classes.linkStyle } to="/">
                             todoApp
                         </Link> 
